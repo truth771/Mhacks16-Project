@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "mhacks16-project"
+version = "0.1.0"
+description = "AI-powered interview prep tool"
+authors = ["Your Name <you@example.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
