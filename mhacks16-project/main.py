@@ -18,7 +18,7 @@ def main():
     emotion_dict = emotion.emotion_detection(video_filename)
 
     for i in emotion_dict:
-        print("You experienced " + i + " " + str(emotion_dict[i]) + "  times")
+        print("You experienced " + i + " " + str(emotion_dict[i]) + " times")
 
     
 
