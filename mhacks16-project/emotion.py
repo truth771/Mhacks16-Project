@@ -3,9 +3,9 @@ from deepface import DeepFace
 import numpy as np
 import os
 
-emotions = {}
-
 def emotion_detection(filename):
+    emotions = {}
+    # frame_count = 0
     VIDEOS_DIR = os.path.join('.', 'mhacks16-project/videos')
     VIDEO_NAME = filename
     emotion_color_mapping = {
@@ -20,7 +20,7 @@ def emotion_detection(filename):
 
     video_path = os.path.join(VIDEOS_DIR, VIDEO_NAME)
     video_path_out = '{}_out.mp4'.format(video_path[:-4])
-    print(video_path)
+
     cap = cv2.VideoCapture(video_path)
     ret, frame = cap.read()
     H, W, _ = frame.shape
@@ -58,6 +58,9 @@ def emotion_detection(filename):
                     emotions["no face"] = 1
         out.write(frame)
         ret, frame = cap.read()
+        # if frame_count % 100 == 0:
+        #     print('Processed {} frames.'.format(frame_count))
+        # frame_count += 1
 
     cap.release()
     out.release()
