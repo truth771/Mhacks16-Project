@@ -1,11 +1,16 @@
 import asyncio
+import speech_to_text
 
-from hume import HumeStreamClient
+from hume import HumeStreamClient, TranscriptionConfig
 from hume.models.config import LanguageConfig
+samples=[]
+def speechtext():
+    transcript = speech_to_text.speech_to_text("harvard.wav")
+    samples = [
+        transcript
+    ]
+    main()
 
-samples = [
-   
-]
 
 async def main():
     client = HumeStreamClient("uz60UCRzGzUlXef4s1kQa9ErZjqIP2JUy5da7BFqDzE1gKa0")
@@ -17,3 +22,4 @@ async def main():
             print(emotions)
 
 asyncio.run(main())
+speechtext()
