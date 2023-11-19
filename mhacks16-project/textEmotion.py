@@ -4,10 +4,7 @@ from hume import HumeStreamClient
 from hume.models.config import LanguageConfig
 
 samples = [
-    "Mary had a little lamb,",
-    "Its fleece was white as snow."
-    "Everywhere the child went,"
-    "The little lamb was sure to go."
+   
 ]
 
 async def main():

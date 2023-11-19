@@ -5,6 +5,7 @@ def main():
     transcript = speech_to_text.speech_to_text("harvard.wav")
     question = ""
     gpt_analysis = gpt.gpt_response(question, transcript)
+    print (transcript)
     
 
 if(__name__ == "__main__"):
