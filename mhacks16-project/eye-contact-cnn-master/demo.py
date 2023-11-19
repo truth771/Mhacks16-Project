@@ -19,7 +19,7 @@ parser = argparse.ArgumentParser()
 
 parser.add_argument('--video', type=str, help='input video path. live cam is used when not specified')
 parser.add_argument('--face', type=str, help='face detection file path. dlib face detector is used when not specified')
-parser.add_argument('--model_weight', type=str, help='path to model weights file', default='data/model_weights.pkl')
+parser.add_argument('--model_weight', type=str, help='path to model weights file', default='mhacks16-project/eye-contact-cnn-master/data/model_weights.pkl')
 parser.add_argument('--jitter', type=int, help='jitter bbox n times, and average results', default=0)
 parser.add_argument('-save_vis', help='saves output as video', action='store_true')
 parser.add_argument('-save_text', help='saves output as text', action='store_true')
@@ -27,7 +27,7 @@ parser.add_argument('-display_off', help='do not display frames', action='store_
 
 args = parser.parse_args()
 
-CNN_FACE_MODEL = 'data/mmod_human_face_detector.dat' # from http://dlib.net/files/mmod_human_face_detector.dat.bz2
+CNN_FACE_MODEL = 'mhacks16-project/eye-contact-cnn-master/data/mmod_human_face_detector.dat' # from http://dlib.net/files/mmod_human_face_detector.dat.bz2
 
 
 def bbox_jitter(bbox_left, bbox_top, bbox_right, bbox_bottom):
@@ -51,7 +51,8 @@ def run(video_path, face_path, model_weight, jitter, vis, display_off, save_text
     # set up vis settings
     red = Color("red")
     colors = list(red.range_to(Color("green"),10))
-    font = ImageFont.truetype("data/arial.ttf", 40)
+    font = ImageFont.truetype("mhacks16-project/eye-contact-cnn-master/data/arial.ttf", 40)
+    # font = ImageFont.load_default
 
     # set up video source
     if video_path is None:

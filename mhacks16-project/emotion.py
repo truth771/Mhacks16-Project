@@ -4,7 +4,7 @@ import numpy as np
 import os
 
 def emotion_detection(filename):
-    emotions = {}
+    emotions = {'angry': 0,'disgust': 0, 'fear': 0, 'sad': 0,'happy': 0,'surprise': 0,'neutral': 0,'no face':0}
     # frame_count = 0
     VIDEOS_DIR = os.path.join('.', 'mhacks16-project/videos')
     VIDEO_NAME = filename

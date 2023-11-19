@@ -6,9 +6,13 @@ import emotion
 import time
 import logging
 from moviepy.editor import VideoFileClip
+import sys
+import os
+sys.path.insert(1, "/Users/truth/Mhacks16-Project/mhacks16-project/eye-contact-cnn-master")
+import demo
 
 logging.getLogger('moviepy').setLevel(logging.CRITICAL)
-st.title("Interview.prep()")
+st.title("Pedagora")
 
 video_filename = st.file_uploader("Choose a video file")
 
@@ -31,11 +35,19 @@ if video_filename is not None:
 
     st.write(gpt.gpt_response(question, transcript))
     st.write("\n")
+
+  
+
     st.write("Processing the emotions (~2-5 min)...")
 
     emotion_dict = emotion.emotion_detection(new_file)
     emotions_output = gpt.gpt_emotions(emotion_dict)
     st.write(emotions_output)
 
+    print(f"old: {os.getcwd()}")
+    os.chdir('/Users/truth/Mhacks16-Project/mhacks16-project/eye-contact-cnn-master')
+    print(f"new: {os.getcwd()}")
+    demo.run(video_path=new_file, model_weight='mhacks16-project/eye-contact-cnn-master/data/model_weights.pkl', jitter=0, vis=True, display_off=False, save_text=True)
+    os.chdir('/Users/truth/Mhacks16-Project/mhacks16-project')
     time.sleep(5)
     st.subheader("Feel free to upload more clips for feedback!")
